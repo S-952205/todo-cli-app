@@ -27,7 +27,14 @@ todo-app/
 │       ├── data-model.md  # Data structure
 │       └── tasks.md       # Task breakdown
 │
-└── pyproject.toml         # Project config
+├── history/               # Development history
+│   ├── prompts/           # Prompt History Records
+│   └── adr/               # Architectural Decision Records
+│
+├── .gitignore             # Git ignore patterns
+├── pyproject.toml         # Project config
+├── README.md              # This file
+└── CLAUDE.md              # Development guidelines
 ```
 
 ---
@@ -163,15 +170,26 @@ main.py
 
 ---
 
+## Development Approach
+
+This project follows **Spec-Driven Development (SDD)**:
+- **Specifications**: Feature requirements and contracts
+- **Planning**: Architecture and design decisions
+- **Implementation**: Task-driven development with testing
+- **Documentation**: PHRs and ADRs for traceability
+
 ## Documentation
 
 For more details, see:
 - `specs/001-crud-tasks/spec.md` - Feature requirements
-- `specs/001-crud-tasks/plan.md` - Architecture details
-- `specs/001-crud-tasks/data-model.md` - Data structure
-- `CLAUDE.md` - Development guidelines
+- `specs/001-crud-tasks/plan.md` - Architecture and design decisions
+- `specs/001-crud-tasks/data-model.md` - Data structure and entity definitions
+- `specs/001-crud-tasks/contracts/` - API contracts and test requirements
+- `history/adr/` - Architectural Decision Records
+- `history/prompts/` - Prompt History Records (development log)
+- `CLAUDE.md` - Development guidelines and policies
 
 ---
 
-**Last Updated**: January 1, 2026
-**Branch**: `001-crud-tasks`
+**Last Updated**: January 2, 2026
+**Branch**: `main`
