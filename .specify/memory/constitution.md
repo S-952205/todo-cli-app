@@ -1,55 +1,68 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+  SYNC IMPACT REPORT
+  - Version change: [NONE] → 1.0.0
+  - Constitutional initialization with Phase 1 governance
+  - Added principles: Structural Mandates, Coding Standards & Integrity, Agentic Workflow Governance, Documentation Standards
+  - Templates requiring updates: spec-template.md, plan-template.md, tasks-template.md (all align with Phase 1 scope constraints)
+  - Follow-up: None
+-->
+
+# Todo CLI App (Phase 1) Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Environment & Dependency Management
+All development MUST be managed via `uv`. No global Python installations are allowed. This ensures reproducible builds and eliminates version conflicts across development machines.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Single-User In-Memory Architecture
+The application MUST remain a single-user In-Memory CLI system. Persistence, multi-user support, and distributed state are explicitly out of scope for Phase 1 and require constitutional amendment if needed in future phases.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Directory Structure Discipline
+Source code belongs in `/src`. Technical requirements belong in `/specs`. Project context and development guidance belong in `CLAUDE.md`. This strict separation ensures clarity of intent and aids navigation for both humans and agents.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Logic-Display Separation
+Business logic (how the todo works) must be separate from the CLI display logic (how it looks). This isolation enables independent testing of core functionality and easier CLI redesigns without touching business rules.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Strict PEP 8 Adherence
+All Python code MUST follow PEP 8 strictly. Variable naming MUST be descriptive and consistent. Readability is non-negotiable; code reviews MUST verify compliance before merge.
 
-### [PRINCIPLE_6_NAME]
+### VI. No Silent Failures
+Every exception MUST be caught and reported to the user in plain English. Silent failures corrupt user trust and make debugging impossible. All error paths must be explicit and tested.
 
+### VII. Immutability of Scope (Basic Level)
+No feature outside the "Basic Level" (Add, View, Update, Delete, Toggle) shall be implemented without a constitutional amendment. This ensures focus and prevents scope creep during Phase 1.
 
-[PRINCIPLE__DESCRIPTION]
+### VIII. Comprehensive Documentation
+Every function and class MUST include a docstring explaining its purpose, parameters, and return values. Documentation is not optional; it is a compliance requirement for all code.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### IX. Specification-Driven Workflow
+Development MUST strictly follow: `/sp.specify` → `/sp.plan` → `/sp.tasks` → `/sp.implement`. This workflow ensures architectural clarity, stakeholder alignment, and traceable decision-making before any code is written.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### X. Zero-Touch Human Policy
+The human (user) will not edit any `.py` files. All changes MUST be driven through specifications and AI sub-agents. This ensures consistency and maintains a complete audit trail of all decisions.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### XI. Quality Gate: Agent Audit
+No feature is considered "Done" until the `quality-tester` agent issues a formal PASS verdict. This gate prevents incomplete or untested code from entering the project.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### XII. Specification History & Traceability
+Specification history MUST be maintained to track why certain logic decisions were made. This aids future refactoring, onboarding, and architectural evolution.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Amendment Procedure
+- New principles or scope changes require explicit user consent.
+- Constitution changes are tracked in version history with rationale.
+- All amendments trigger a review of dependent templates (spec, plan, tasks) to ensure alignment.
+- Breaking changes (MAJOR version bumps) require migration planning for existing artifacts.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### Versioning Policy
+- **MAJOR**: Backward incompatible governance changes or principle removals.
+- **MINOR**: New principles added or materially expanded guidance.
+- **PATCH**: Clarifications, wording refinements, typo fixes.
+
+### Compliance Enforcement
+- Every PR review MUST verify adherence to applicable principles.
+- Complexity or scope creep MUST be justified against constitutional scope (Basic Level only).
+- Use `CLAUDE.md` for runtime development guidance; Constitution supersedes all other practices.
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-31 | **Last Amended**: 2025-12-31

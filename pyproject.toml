@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "todo-cli"
+version = "0.1.0"
+description = "Phase 1 In-Memory Todo CLI - Core Task Management (CRUD)"
+requires-python = ">=3.13"
+authors = [
+    {name = "Claude Code Agent", email = "noreply@anthropic.com"}
+]
+license = {text = "MIT"}
+
+dependencies = [
+    "rich>=13.0.0",  # Terminal formatting and tables
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",  # Testing framework
+    "pytest-cov>=4.1.0",  # Coverage reporting
+    "black>=23.0.0",  # Code formatter
+    "flake8>=6.0.0",  # Linter
+]
+
+[project.scripts]
+todo = "src.main:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py313"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
